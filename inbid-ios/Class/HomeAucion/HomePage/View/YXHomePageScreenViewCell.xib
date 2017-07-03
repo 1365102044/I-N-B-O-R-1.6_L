@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="kYXHomePageScreenViewCellReuseIdentifier" rowHeight="95" id="KGk-i7-Jjw" customClass="YXHomePageScreenViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-ko-Sc7">
+                        <rect key="frame" x="15" y="33.5" width="41" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" red="0.098039215690000001" green="0.039215686270000001" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_homePageScreenViewSelected" translatesAutoresizingMaskIntoConstraints="NO" id="WoL-o4-tJI">
+                        <rect key="frame" x="294.5" y="42.5" width="13" height="10"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-un-ZMK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="JgE-kJ-Nud"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9f8-ee-6Fw">
+                        <rect key="frame" x="0.0" y="94" width="320" height="0.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="vdK-1l-Bdj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="WoL-o4-tJI" secondAttribute="trailing" constant="12.5" id="DJj-ty-baK"/>
+                    <constraint firstItem="aZu-ko-Sc7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="MB3-ab-Z7t"/>
+                    <constraint firstItem="9f8-ee-6Fw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RAe-QD-vnM"/>
+                    <constraint firstItem="aZu-ko-Sc7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ax6-Rw-5Mv"/>
+                    <constraint firstItem="WoL-o4-tJI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dpf-Xi-xfh"/>
+                    <constraint firstAttribute="bottom" secondItem="9f8-ee-6Fw" secondAttribute="bottom" id="fGA-nx-yeH"/>
+                    <constraint firstItem="Z4a-un-ZMK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fHR-OQ-wSM"/>
+                    <constraint firstAttribute="trailing" secondItem="9f8-ee-6Fw" secondAttribute="trailing" id="hWG-r1-SxI"/>
+                    <constraint firstAttribute="trailing" secondItem="Z4a-un-ZMK" secondAttribute="trailing" id="vjI-ux-lu1"/>
+                    <constraint firstItem="Z4a-un-ZMK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zXP-kc-dsB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomView" destination="9f8-ee-6Fw" id="bG1-bx-LuF"/>
+                <outlet property="selectedImage" destination="WoL-o4-tJI" id="lF5-8R-ExG"/>
+                <outlet property="titleButton" destination="aZu-ko-Sc7" id="TSH-SV-2nZ"/>
+                <outlet property="topView" destination="Z4a-un-ZMK" id="zRI-EO-cc5"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="77.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_homePageScreenViewSelected" width="13" height="10"/>
+    </resources>
+</document>

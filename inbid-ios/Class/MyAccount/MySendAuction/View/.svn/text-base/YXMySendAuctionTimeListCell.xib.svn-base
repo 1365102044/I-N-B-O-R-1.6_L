@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kYXMySendAuctionTimeListCellReuseIdentifier" rowHeight="181" id="o4u-W2-Ghb" customClass="YXMySendAuctionTimeListCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o4u-W2-Ghb" id="D3v-uE-57O">
+                <frame key="frameInset" width="375" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulQ-cu-kV7">
+                        <color key="backgroundColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="zXx-CF-Gdi"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="椭圆-2-拷贝" translatesAutoresizingMaskIntoConstraints="NO" id="xuq-Wp-7tw">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="F2v-ff-tem"/>
+                            <constraint firstAttribute="height" constant="13" id="kBd-mr-H71"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOc-oy-Mik">
+                        <frame key="frameInset" minX="42.5" minY="21.5" width="322.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zR-qR-AQ7">
+                        <frame key="frameInset" minX="42" minY="52" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ulQ-cu-kV7" firstAttribute="centerX" secondItem="xuq-Wp-7tw" secondAttribute="centerX" id="AfG-E4-xXc"/>
+                    <constraint firstAttribute="bottom" secondItem="ulQ-cu-kV7" secondAttribute="bottom" id="Asa-Aq-7qN"/>
+                    <constraint firstItem="xuq-Wp-7tw" firstAttribute="top" secondItem="D3v-uE-57O" secondAttribute="top" constant="21.5" id="Cuu-Yy-ahz"/>
+                    <constraint firstItem="ulQ-cu-kV7" firstAttribute="top" secondItem="D3v-uE-57O" secondAttribute="top" id="MWy-DM-C55"/>
+                    <constraint firstAttribute="trailing" secondItem="NOc-oy-Mik" secondAttribute="trailing" constant="10" id="OdL-22-Kpk"/>
+                    <constraint firstItem="NOc-oy-Mik" firstAttribute="leading" secondItem="xuq-Wp-7tw" secondAttribute="trailing" constant="8" id="QgP-75-3jx"/>
+                    <constraint firstAttribute="bottom" secondItem="1zR-qR-AQ7" secondAttribute="bottom" constant="5" id="RBh-Xx-Nf6"/>
+                    <constraint firstItem="1zR-qR-AQ7" firstAttribute="leading" secondItem="NOc-oy-Mik" secondAttribute="leading" id="dUm-xg-1oG"/>
+                    <constraint firstItem="NOc-oy-Mik" firstAttribute="top" secondItem="xuq-Wp-7tw" secondAttribute="top" id="j7y-DZ-rR4"/>
+                    <constraint firstItem="1zR-qR-AQ7" firstAttribute="top" secondItem="NOc-oy-Mik" secondAttribute="bottom" constant="9.5" id="lF0-8t-Yhp"/>
+                    <constraint firstItem="xuq-Wp-7tw" firstAttribute="leading" secondItem="D3v-uE-57O" secondAttribute="leading" constant="21.5" id="vTj-Jk-FDv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="NOc-oy-Mik" id="ohN-Rq-39p"/>
+                <outlet property="iconImageView" destination="xuq-Wp-7tw" id="47t-Qk-K2X"/>
+                <outlet property="timeLabel" destination="1zR-qR-AQ7" id="GgI-bb-anb"/>
+            </connections>
+            <point key="canvasLocation" x="84.5" y="75.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="椭圆-2-拷贝" width="10" height="10"/>
+    </resources>
+</document>

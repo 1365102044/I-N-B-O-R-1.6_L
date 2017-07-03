@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/code/!svn/ver/1715/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller
+END
+addNewAddress.storyboard
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/addNewAddress.storyboard
+END
+YXMyAddressListController.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/YXMyAddressListController.h
+END
+YXAddNewAddressViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/code/!svn/ver/1714/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/YXAddNewAddressViewController.m
+END
+YXAddNewAddressTableViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/code/!svn/ver/1714/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/YXAddNewAddressTableViewController.h
+END
+YXMyAddressListController.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/code/!svn/ver/1207/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/YXMyAddressListController.m
+END
+YXAddNewAddressTableViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/code/!svn/ver/1715/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/YXAddNewAddressTableViewController.m
+END
+YXAddNewAddressViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/YXAddNewAddressViewController.h
+END
+myAddressList.storyboard
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/code/!svn/ver/1115/inbid/trunk/inbid-ios/inbid-ios/Class/MyAccount/MyAddress/Controller/myAddressList.storyboard
+END

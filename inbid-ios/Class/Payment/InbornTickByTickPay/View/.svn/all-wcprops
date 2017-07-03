@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/code/!svn/ver/157/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View
+END
+YXInbornTickByTickPaymentTypeCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXInbornTickByTickPaymentTypeCell.h
+END
+YXSelectedPaymentTypeCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXSelectedPaymentTypeCell.h
+END
+YXNoPayMoneyCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXNoPayMoneyCell.xib
+END
+YXInbornTickByTickPaymentTypeCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXInbornTickByTickPaymentTypeCell.m
+END
+YXScanfMoneyCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXScanfMoneyCell.xib
+END
+YXSelectedPaymentTypeCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXSelectedPaymentTypeCell.m
+END
+YXNoPayMoneyCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXNoPayMoneyCell.h
+END
+YXScanfMoneyCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXScanfMoneyCell.h
+END
+YXInbornTickByTickPaymentTypeCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXInbornTickByTickPaymentTypeCell.xib
+END
+YXNoPayMoneyCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXNoPayMoneyCell.m
+END
+YXSelectedPaymentTypeCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/code/!svn/ver/157/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXSelectedPaymentTypeCell.xib
+END
+YXScanfMoneyCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/InbornTickByTickPay/View/YXScanfMoneyCell.m
+END

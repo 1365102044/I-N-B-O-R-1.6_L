@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kYXSendAuctionFirstHeaderReuseIdentifier" id="U6b-Vx-4bR" customClass="YXSendAuctionFirstHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3S-70-FR8">
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tt9-q8-W4K" customClass="YXPlaceholderTextView">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Tt9-q8-W4K" secondAttribute="trailing" constant="12" id="69G-E4-of6"/>
+                        <constraint firstAttribute="bottom" secondItem="Tt9-q8-W4K" secondAttribute="bottom" id="CJi-fw-c7v"/>
+                        <constraint firstItem="Tt9-q8-W4K" firstAttribute="top" secondItem="V3S-70-FR8" secondAttribute="top" constant="11.5" id="lFN-15-MyX"/>
+                        <constraint firstItem="Tt9-q8-W4K" firstAttribute="leading" secondItem="V3S-70-FR8" secondAttribute="leading" constant="12" id="nZZ-8s-veL"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="V3S-70-FR8" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="IbA-0W-IK8"/>
+                <constraint firstAttribute="bottom" secondItem="V3S-70-FR8" secondAttribute="bottom" id="YrH-yy-yMa"/>
+                <constraint firstAttribute="trailing" secondItem="V3S-70-FR8" secondAttribute="trailing" id="asn-fr-fQ4"/>
+                <constraint firstItem="V3S-70-FR8" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="hz8-ND-xOa"/>
+            </constraints>
+            <connections>
+                <outlet property="broderView" destination="V3S-70-FR8" id="xcf-2I-ucH"/>
+                <outlet property="detailTextView" destination="Tt9-q8-W4K" id="uh9-jT-ozf"/>
+            </connections>
+            <point key="canvasLocation" x="-171" y="28.5"/>
+        </collectionReusableView>
+    </objects>
+</document>

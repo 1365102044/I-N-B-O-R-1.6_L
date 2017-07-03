@@ -1,0 +1,426 @@
+//
+//  YXOrderDetailModel.h
+//  OrderDetail
+//
+//  Created by 郑键 on 16/12/13.
+//  Copyright © 2016年 胤宝. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+#import "YXMyOrderListViewController.h"
+
+@interface YXOrderDetailModel : NSObject
+{
+    /**
+     * 已支付的金额(累加)
+     */
+    long long _alreadyPayAmount;
+}
+/**
+ * 订单编号
+ */
+@property (nonatomic, strong) NSString* orderId;
+
+//退回 ID
+@property(nonatomic,strong) NSString * refundProdId;
+/**
+ * 商品名称
+ */
+@property (nonatomic, copy) NSString *prodName;
+
+/**
+ * 商品编号
+ */
+@property (nonatomic, assign) long long prodId;
+
+/**
+ * 商品拍卖编号
+ */
+@property (nonatomic, assign) long long prodBidId;
+
+/**
+ *  我的订单状态：1未付款，2部分付款，3待发货，4待确认收货，5交易完成，6交易取消, 7已汇款,8汇款审核失, 9已收货
+ 
+ 鉴定：1为刚提交，2为审核不通过，3为审核通过 ，4部分付款，5待发货，6待确认收货，7交易完成，8交易取消
+ */
+@property (nonatomic, assign) NSInteger orderStatus;
+
+/**
+ * 订单退款状态：1未退款，2退款中，3部分退款中，4部分退款完成，5退款完成
+ */
+@property (nonatomic, assign) NSInteger orderRefundStatus;
+
+
+#pragma  mark-------鉴定---v-1.6
+/**
+ * 鉴定状态
+ * 0待鉴定 1为鉴定中，2为鉴定成功；3为鉴定失败
+ */
+@property (nonatomic, assign) NSInteger identifyStatus;
+/**
+ * 退回状态,1,未申请 2,已申请,3,退回中,4,已退回
+ */
+@property (nonatomic, assign) NSInteger refundStatus;
+
+/**
+ * 对商品的处理状态
+ * 1为不同意交易；2为平台寄拍；3为回收价卖给平台
+ */
+@property (nonatomic, assign) NSInteger manageStatus;
+
+#pragma  mark-------鉴定--- v-1.6
+/**
+ 一口价商品状态
+ */
+@property (nonatomic, assign) NSInteger bidStatus;
+
+/**
+ 流拍转换状态：1寄拍，2一口价，3平台回收，4退回
+ */
+@property (nonatomic, assign) NSInteger auctionStatus;
+/**
+ 打款状态 1.平台未打款 2.平台打款中3.平台已打款
+ */
+@property (nonatomic, assign) NSInteger paymentStatus;
+
+#pragma  mark-------退回--- v-1.6
+//退货类型：1鉴定订单，2拍品
+@property(nonatomic,assign) NSInteger  refundType;
+
+
+
+
+/**
+ * 配送方式（0快递发货，1会员自提）
+ */
+@property (nonatomic, assign) NSInteger deliveryType;
+
+/**
+ * 配送状态 1:未发货,2:配货中,3:已发货,4:确认收货
+ */
+@property (nonatomic, assign) NSInteger deliveryStatus;
+
+/**
+ * 配送单号
+ */
+@property (nonatomic, copy) NSString *deliveryNum;
+
+/**
+ * 最新配送信息
+ */
+@property (nonatomic, copy) NSString *deliveryTitle;
+
+/**
+ * 最新配送时间
+ */
+@property (nonatomic, copy) NSString *newestDeliveryTime;
+
+/**
+ * 发货时间
+ */
+@property (nonatomic, copy) NSString *deliveryTime;
+
+/**
+ 签收时间
+ */
+@property (nonatomic, copy) NSString *consigneeTime;
+
+/**
+ * 收货人姓名
+ */
+@property (nonatomic, copy) NSString *consigneeName;
+
+/**
+ * 收货人手机
+ */
+@property (nonatomic, copy) NSString *consigneeMobile;
+
+/**
+ * 收货人省份
+ */
+@property (nonatomic, copy) NSString *consigneeProvince;
+
+/**
+ * 收货人城市
+ */
+@property (nonatomic, copy) NSString *consigneeCity;
+
+/**
+ * 收货人收货地址
+ */
+@property (nonatomic, copy) NSString *consigneeAddressDetail;
+
+/**
+ * 自提人姓名
+ */
+@property (nonatomic, copy) NSString *pickupName;
+
+/**
+ * 自提人手机号
+ */
+@property (nonatomic, copy) NSString *pickupMobile;
+
+/**
+ * 自提人身份证号
+ */
+@property (nonatomic, copy) NSString *pickupIdCard;
+
+/**
+ * 是否分笔支付(1=是,0=否)
+ */
+@property (nonatomic, assign) NSInteger isPartPay;
+
+/**
+ * 支付路径: 1 手机网银支付，2 手机微信支付，3手机支付宝支付
+ */
+//private List<Integer> payType;
+@property (nonatomic, strong) NSArray *payType;
+/**
+ * 下单时间
+ */
+//@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//private Date createTime;
+@property (nonatomic, copy) NSString *createTime;
+
+@property(nonatomic,copy) NSString  *endTime;
+
+/**
+ * 订单总金额
+ */
+//private Long orderTotalAmount;
+@property (nonatomic, assign) long long orderTotalAmount;
+
+/**
+ * 订单应付金额,剩余金额
+ */
+//private Long orderPayAmount;
+@property (nonatomic, assign) long long orderPayAmount;
+
+/**
+ * 保证金金额
+ */
+//private Long marginPrice;
+@property (nonatomic, assign) long long marginPrice;
+
+/**
+ * 订单交易完成或取消时间
+ */
+//@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//private Date orderDealedCancelTime;
+@property (nonatomic, copy) NSString *orderDealedCancelTime;
+
+/**
+ * 支付完成时间
+ */
+//@JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//private Date payedTime;
+@property (nonatomic,copy) NSString *payedTime;
+
+/**
+ * 物流信息
+ */
+//private List<RouteInfo> routes;
+@property (nonatomic, strong) NSArray *routes;
+
+/**
+ * 订单类型：1拍卖订单，2一口价订单
+ */
+//private Integer orderType;
+@property (nonatomic, assign) NSInteger orderType;
+
+//** =========================================================================================== */
+//** ===========================================新加字段========================================= */
+//** =========================================================================================== */
+
+/**
+ 物流配送商名称
+ */
+@property (nonatomic, copy) NSString *deliveryMerchant;
+
+/**
+ 保价
+ */
+@property (nonatomic, assign) long long protectPrice;
+
+/**
+ 订单优惠金额
+ */
+@property (nonatomic, assign) long long orderDiscountAmount;
+
+/**
+ 商品图片地址
+ */
+@property (nonatomic, copy) NSString *imgUrl;
+
+/**
+ 定金金额
+ */
+@property (nonatomic, assign) long long depositPrice;
+
+/**
+ 运费
+ */
+@property (nonatomic, assign) long long carriage;
+
+/**
+ 是否支付定金 1.是 0否
+ */
+@property (nonatomic, assign) NSInteger isPayedDeposit;
+
+/**
+ 订单付款方式 1全额支付，2定金支付，3分笔支付，4转账汇款，5订金+刷卡
+ */
+@property (nonatomic, assign) NSInteger orderPayType;
+
+/**
+ 用户是否取消订单  1.表示用户取消 0.表示超时取消
+ */
+@property (nonatomic, assign) NSInteger isUserCancel;
+
+/**
+ 退款金额
+ */
+@property (nonatomic, assign) long long refundAmount;
+
+/**
+ 计算待付金额
+ */
+@property (nonatomic, assign) long long calculationAmount;
+
+/**
+ * 是否允许定金支付：0不允许，1允许
+ */
+@property (nonatomic, assign) NSInteger isAllowDepositPay;
+
+/**
+ 已支付金额
+ */
+@property (nonatomic, assign) long long severAlreadyPayment;
+
+/**
+ 已支付的金额
+ 
+ @param alreadyPayAmount 订单已支付金额
+ */
+- (void)setAlreadyPayAmount:(long long)alreadyPayAmount;
+
+/**
+ 服务器当前时间
+ */
+@property (nonatomic, copy) NSString *systemCurrentTime;
+
+/**
+ 已经支付的金额
+ 
+ @return 订单已支付的金额取值
+ */
+- (long long)alreadyPayAmount;
+
+
+
+
+
+#pragma mark +++++ V-1.6 ********
+
+@property(nonatomic,assign) sourViewControllerEnum  CurrentVcType;
+//主要区分 出售中／已下架
+@property(nonatomic,copy) NSString*  listType;
+
+// id 转化
+@property(nonatomic,strong) NSString * MYId;
+//商品名
+@property(nonatomic,strong) NSString * mainImg;
+//品牌
+@property(nonatomic,strong) NSString * prodBrandName;
+//价格
+@property(nonatomic,strong) NSString * currentPrice;
+
+//订单编号
+@property(nonatomic,strong)  NSString* orderNumber;
+
+
+//** =========================================================================================== */
+//** ========================================原模型迁移字段======================================= */
+//** =========================================================================================== */
+
+/**
+ 建议价格
+ */
+@property (nonatomic, copy) NSString *minSuggestMoney;
+
+/**
+ * 关于商品的描述内容
+ */
+//private String orderContent;
+@property (nonatomic, copy) NSString *orderContent;
+
+/**
+ * 建议价
+ */
+//private Long suggestMoney;
+@property (nonatomic, assign) NSInteger suggestMoney;
+/**
+ * 回收价
+ */
+//private Long recycleMoney;
+@property (nonatomic, assign) NSInteger recycleMoney;
+
+/**
+ * 起拍价格
+ */
+//private Long startPrice;
+@property (nonatomic, assign) NSInteger startPrice;
+/**
+ * 鉴定费
+ */
+//private Long identifyMoney;
+@property (nonatomic, assign) NSInteger identifyMoney;
+/**
+ * 用户昵称
+ */
+//private String nickname;
+@property (nonatomic, copy) NSString *nickname;
+
+/**
+ * 参与人数
+ */
+//private Integer memberCount;
+@property (nonatomic, assign) NSInteger memberCount;
+/**
+ * 出价次数
+ */
+//private Integer bidCount;
+@property (nonatomic, assign) NSInteger bidCount;
+
+/**
+ * 状态生成的时间日志
+ */
+//private List<IdentifyStatusLog> logs;
+@property (nonatomic, strong) NSArray *timeList;
+
+
+//** 当前组 */
+@property (nonatomic, assign) NSInteger currentSection;
+
+//** 建议最高价 */
+@property (nonatomic, assign) NSInteger maxSuggestMoney;
+
+@property (nonatomic, assign) NSInteger currentPage;
+
+/**
+ * 审核结果
+ */
+//private String verifyResult;
+@property (nonatomic, copy) NSString *verifyResult;
+/**
+ * 鉴定结果
+ */
+//private String identifyResult;
+@property (nonatomic, copy) NSString *identifyResult;
+
+//我卖出的
+@property(nonatomic,assign) NSInteger orderShowStatus;
+@property(nonatomic,copy) NSString  *orderShowStatusStr;
+
+@end

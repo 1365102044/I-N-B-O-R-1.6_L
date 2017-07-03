@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/YXPayController/Controller
+END
+YXWaitForPaymentViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/YXPayController/Controller/YXWaitForPaymentViewController.h
+END
+Pay.storyboard
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/YXPayController/Controller/Pay.storyboard
+END
+YXPayController.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/YXPayController/Controller/YXPayController.h
+END
+YXWaitForPaymentViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/YXPayController/Controller/YXWaitForPaymentViewController.m
+END
+YXPayController.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/YXPayController/Controller/YXPayController.m
+END

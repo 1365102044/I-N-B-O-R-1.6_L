@@ -1,0 +1,9 @@
+#ifndef Demo_codeObfuscation_h
+#define Demo_codeObfuscation_h
+//confuse string at Mon Jul  3 16:42:10 CST 2017
+#define loadPaymentControllerWithProdId VSwZuXqtSsvLWxZR
+#define AppDelegateDidBecomeActiveStatus TzopNMXCZhoZdMKR
+#define AppDelegateDidBecomeActiveNone fTradGSpbYlqGGWv
+#define AppDelegateDidBecomeActiveQueryGoodStatus jkaJnuRvWAuoneRZ
+#define AppDelegateDidBecomeActiveWXCallBacked OhqVddzfGGfSGQzt
+#endif

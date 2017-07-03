@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip
+END
+unzip.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/unzip.m
+END
+mztools.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/mztools.m
+END
+crypt.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/crypt.h
+END
+ioapi.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/ioapi.h
+END
+zip.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/zip.h
+END
+unzip.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/unzip.h
+END
+ioapi.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/ioapi.m
+END
+mztools.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/mztools.h
+END
+zip.m
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/code/!svn/ver/1127/inbid/trunk/inbid-ios/inbid-ios/Class/Main/Thrid/JSPatch/Core/Loader/libs/minizip/zip.m
+END

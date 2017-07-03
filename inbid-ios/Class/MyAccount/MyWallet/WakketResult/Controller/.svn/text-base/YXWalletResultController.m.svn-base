@@ -1,0 +1,319 @@
+//
+//  YXWalletResultController.m
+//  Project
+//
+//  Created by 郑键 on 17/2/17.
+//  Copyright © 2017年 zhengjian. All rights reserved.
+//
+
+#import "YXWalletResultController.h"
+#import "YXWithdrawalsResultCell.h"
+#import "YXWithdrawalsResultModel.h"
+#import "YXMyWalletBankCardListViewController.h"
+static NSString * const kYXWalletResultControllerReusableIdentifyId = @"kYXWalletResultControllerReusableIdentifyId";
+
+@interface YXWalletResultController ()<UITableViewDataSource, UITableViewDelegate>
+
+/**
+ 内容视图（当类型为提现结果时，用当前view替换根视图）
+ */
+@property (nonatomic, strong) UITableView *contentTableView;
+
+/**
+ 内容视图（当类型为默认类型时，用当前View替换根视图）
+ */
+@property (nonatomic, strong) UIView *defaultResultView;
+
+/**
+ 控制器类型
+ */
+@property (nonatomic, assign) YXWalletResultControllerType type;
+
+/**
+ 扩展参数
+ */
+@property (nonatomic, strong) NSDictionary *extend;
+
+/**
+ 提现结果数据模型
+ */
+@property (nonatomic, strong) YXWithdrawalsResultModel *resultModel;
+
+@end
+
+@implementation YXWalletResultController
+
+#pragma maark - Zero.Const
+
+/**
+ *  WithdrawalsResult iconImageView Top Spacing
+ */
+CGFloat withdrawalsResultIconImageViewTopSpacing                = 112;
+
+/**
+ *  WithdrawalsResult iconImageView Width And Height
+ */
+CGFloat withdrawalsResultIconImageViewWidthAndHeight            = 55;
+
+/**
+ *  WithdrawalsResult titleLabel Top Margin
+ */
+CGFloat withdrawalsResultTitleLabelTopMargin                    = 46.5;
+
+/**
+ *  WithdrawalsResult funcButton Top Margin
+ */
+CGFloat withdrawalsResultFuncButtonTopMargin                    = 88.f;
+
+/**
+ *  WithdrawalsResult funcButton Height
+ */
+CGFloat withdrawalsResultFuncButtonHeight                       = 35.f;
+
+/**
+ *  WithdrawalsResult funcButton Width
+ */
+CGFloat withdrawalsResultFuncButtonWidth                        = 105.f;
+
+#pragma mark - First.通知
+
+#pragma mark - Second.赋值
+
+#pragma mark - Third.点击事件
+
+/**
+ 点击事件
+
+ @param sender sender
+ */
+- (void)funcButtonClick:(UIButton *)sender
+{
+    //钱包开通成功 ->钱包的界面
+    if ([self.extend[@"sourVcType"] isEqualToString:@"openwalletSuccess"]) {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        [YXNotificationTool postNotificationName:@"pushMywalletMianVC" object:nil];
+        return;
+    }
+//    银行卡解绑 ->银行卡 列表
+    if ([self.extend[@"sourVcType"] isEqualToString:@"unbindbankSuccess"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    //账户安全->修改支付密码->账户安全列表（row=1）
+    if ([self.extend[@"sourVcType"] isEqualToString:@"ModifyPayPassword"]) {
+        
+        [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count-3] animated:YES];
+        return;
+    }
+    
+    if ([self.extend[@"sourVcType"] isEqualToString:@"ResetPayPassword"]) {
+        YXMyWalletBankCardListViewController *brankListVC = [[YXMyWalletBankCardListViewController alloc]init];
+        brankListVC.PushFormeVCIdentifier = 2;
+        [self.navigationController pushViewController:brankListVC animated:YES];
+        return;
+    }
+}
+
+#pragma mark - Fourth.代理方法
+
+#pragma mark <UITableViewDataSource>
+
+/**
+ 返回组
+ 
+ @param tableView tableView
+ 
+ @return 组数
+ */
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+/**
+ 返回行
+ 
+ @param tableView tableView
+ @param section   section
+ 
+ @return 每组的行数
+ */
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+/**
+ 自定义cell
+ 
+ @param tableView tableView
+ @param indexPath indexPath
+ 
+ @return 自定义cell
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YXWithdrawalsResultCell *cell       = [tableView dequeueReusableCellWithIdentifier:kYXWalletResultControllerReusableIdentifyId];
+    if (!cell) {
+        cell                            = [[YXWithdrawalsResultCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                                         reuseIdentifier:kYXWalletResultControllerReusableIdentifyId];
+    }
+    cell.backgroundColor                = [UIColor redColor];
+    cell.resultModel                    = self.resultModel;
+    return cell;
+}
+
+#pragma mark - Fifth.控制器生命周期
+
+/**
+ 实例化当前对象
+ 
+ @param type type 类型
+ @param extend extend 扩展参数（暂时nil）
+ @return 实例化对象
+ */
++ (instancetype)walletResultControllerWithType:(YXWalletResultControllerType)type
+                                        extend:(id)extend
+{
+    YXWalletResultController *walletResultController    = [[YXWalletResultController alloc] init];
+    walletResultController.type                         = type;
+    walletResultController.extend                       = [(NSDictionary *)extend copy];
+    if (type == YXWalletResultControllerWithdrawalsResult) {
+        walletResultController.resultModel              = [YXWithdrawalsResultModel mj_objectWithKeyValues:extend];
+    }
+    return walletResultController;
+}
+
+/**
+ 加载视图
+ */
+- (void)loadView
+{
+    [super loadView];
+    if (self.type == YXWalletResultControllerWithdrawalsResult) {
+        self.view           = self.contentTableView;
+    }else{
+        self.view           = self.defaultResultView;
+    }
+}
+
+/**
+ 视图加载完毕
+ */
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self setupCustomUI];
+}
+
+#pragma mark - Sixth.界面配置
+
+/**
+ 配置界面
+ */
+- (void)setupCustomUI
+{
+    self.type == YXWalletResultControllerWithdrawalsResult ? [self setupWithdrawalsResultUI] : [self setupDefaultResultUI];
+}
+
+/**
+ 配置默认结果界面
+ */
+- (void)setupDefaultResultUI
+{
+    self.title                          = @"结果详情";
+    /**
+     *  logo图片
+     */
+    UIImageView *iconImageView          = [[UIImageView alloc] init];
+    iconImageView.image                 = [UIImage imageNamed:self.extend[@"imageNamed"]];
+    
+    /**
+     *  titlelabel
+     */
+    UILabel *titlelabel                 = [[UILabel alloc] init];
+    titlelabel.textAlignment            = NSTextAlignmentCenter;
+    titlelabel.text                     = self.extend[@"titleString"];
+    titlelabel.backgroundColor          = [UIColor whiteColor];
+    titlelabel.font                     = REGULAR_FONT(16.f);
+    titlelabel.textColor                = [UIColor walletTextColor];
+    
+    /**
+     *  button
+     */
+    UIButton *funcButton                = [[UIButton alloc] init];
+    funcButton.backgroundColor          = [UIColor whiteColor];
+    funcButton.titleLabel.font          = REGULAR_FONT(15.f);
+    funcButton.layer.cornerRadius       = 4.f;
+    funcButton.layer.borderWidth        = 1.0;
+    funcButton.clipsToBounds            = YES;
+    
+    [funcButton setTitle:self.extend[@"buttonTitle"]
+                forState:UIControlStateNormal];
+    [funcButton addTarget:self
+                   action:@selector(funcButtonClick:)
+         forControlEvents:UIControlEventTouchUpInside];
+    [funcButton setTitleColor:[UIColor walletTextColor]
+                     forState:UIControlStateNormal];
+    
+    [self.defaultResultView addSubview:iconImageView];
+    [self.defaultResultView addSubview:titlelabel];
+    [self.defaultResultView addSubview:funcButton];
+    
+    [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.defaultResultView);
+        make.top.mas_equalTo(self.defaultResultView).mas_offset(ADJUST_PERCENT_FLOAT(withdrawalsResultIconImageViewTopSpacing));
+        make.width.height.mas_equalTo(ADJUST_PERCENT_FLOAT(withdrawalsResultIconImageViewWidthAndHeight));
+    }];
+    
+    [titlelabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.defaultResultView).mas_offset(ADJUST_PERCENT_FLOAT(15));
+        make.right.mas_equalTo(self.defaultResultView).mas_offset(ADJUST_PERCENT_FLOAT(-15));
+        make.top.mas_equalTo(iconImageView.mas_bottom).mas_offset(ADJUST_PERCENT_FLOAT(withdrawalsResultTitleLabelTopMargin));
+    }];
+    
+    [funcButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(titlelabel.mas_bottom).mas_offset(ADJUST_PERCENT_FLOAT(withdrawalsResultFuncButtonTopMargin));
+        make.height.mas_equalTo(ADJUST_PERCENT_FLOAT(withdrawalsResultFuncButtonHeight));
+        make.width.mas_equalTo(withdrawalsResultFuncButtonWidth);
+        make.centerX.mas_equalTo(self.defaultResultView);
+    }];
+}
+
+/**
+ 配置提现结果页面
+ */
+- (void)setupWithdrawalsResultUI
+{
+    self.title                                          = @"结果详情";
+    self.contentTableView.rowHeight                     = ADJUST_PERCENT_FLOAT(151.f);
+}
+
+#pragma mark - Seventh.懒加载
+
+- (UIView *)defaultResultView
+{
+    if (!_defaultResultView) {
+        _defaultResultView                              = [[UIView alloc] init];
+        _defaultResultView.backgroundColor              = [UIColor whiteColor];
+    }
+    return _defaultResultView;
+}
+
+- (UITableView *)contentTableView
+{
+    if (!_contentTableView) {
+        UITableView *tableViewTemp                      = [[UITableView alloc] initWithFrame:self.view.bounds
+                                                                                       style:UITableViewStylePlain];
+        tableViewTemp.separatorStyle                    = UITableViewCellSeparatorStyleNone;
+        tableViewTemp.backgroundColor                   = [UIColor themLightGrayColor];
+        tableViewTemp.delegate                          = self;
+        tableViewTemp.dataSource                        = self;
+        tableViewTemp.keyboardDismissMode               = YES;
+        _contentTableView                               = tableViewTemp;
+    }
+    return _contentTableView;
+}
+
+@end

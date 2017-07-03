@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="X4G-ex-PrD" customClass="YXHomePageBadRequestView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3h2-wd-DRb">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_wifiBad" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-Ey-u8S">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="87" id="5lS-cD-0ft"/>
+                                <constraint firstAttribute="width" constant="87" id="CJ3-7Z-6ia"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piB-fi-yUL">
+                            <state key="normal" image="ic_homePage_reRequest"/>
+                            <connections>
+                                <action selector="reRequestButtonClick:" destination="X4G-ex-PrD" eventType="touchUpInside" id="G42-pc-iVH"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络出错啦，点击按钮重新加载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNf-CU-LIu">
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.80392156862745101" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="MYh-Ey-u8S" firstAttribute="centerX" secondItem="3h2-wd-DRb" secondAttribute="centerX" id="1eT-I1-fFY"/>
+                        <constraint firstItem="piB-fi-yUL" firstAttribute="centerX" secondItem="3h2-wd-DRb" secondAttribute="centerX" id="6Ws-dI-HZx"/>
+                        <constraint firstAttribute="height" constant="400" id="Aal-Yk-tCD"/>
+                        <constraint firstItem="JNf-CU-LIu" firstAttribute="centerX" secondItem="3h2-wd-DRb" secondAttribute="centerX" id="IIM-8v-DWP"/>
+                        <constraint firstItem="piB-fi-yUL" firstAttribute="top" secondItem="JNf-CU-LIu" secondAttribute="bottom" constant="26.5" id="NH4-xf-LIZ"/>
+                        <constraint firstItem="MYh-Ey-u8S" firstAttribute="top" secondItem="3h2-wd-DRb" secondAttribute="top" constant="50" id="YWs-9O-Su5"/>
+                        <constraint firstItem="JNf-CU-LIu" firstAttribute="top" secondItem="MYh-Ey-u8S" secondAttribute="bottom" constant="37" id="a11-W9-tn5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="3h2-wd-DRb" firstAttribute="centerY" secondItem="X4G-ex-PrD" secondAttribute="centerY" id="9hx-dq-MxO"/>
+                <constraint firstAttribute="trailing" secondItem="3h2-wd-DRb" secondAttribute="trailing" id="CfQ-BT-Pdq"/>
+                <constraint firstItem="3h2-wd-DRb" firstAttribute="leading" secondItem="X4G-ex-PrD" secondAttribute="leading" id="nDB-vh-Otn"/>
+            </constraints>
+            <point key="canvasLocation" x="-27" y="59"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_homePage_reRequest" width="121" height="31"/>
+        <image name="ic_wifiBad" width="87" height="87"/>
+    </resources>
+</document>

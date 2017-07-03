@@ -1,0 +1,18 @@
+#ifndef Demo_codeObfuscation_h
+#define Demo_codeObfuscation_h
+<<<<<<< .mine
+//confuse string at Fri Mar  3 17:19:18 CST 2017
+#define loadPaymentControllerWithProdId PdkppbucGpQhyqpO
+#define AppDelegateDidBecomeActiveStatus gIHrYQupHNaSDFrT
+#define AppDelegateDidBecomeActiveNone VdokdHQkXLBxpzWK
+#define AppDelegateDidBecomeActiveQueryGoodStatus BobFcSAWNOkseTui
+#define AppDelegateDidBecomeActiveWXCallBacked QzXXkOFXnDyYiiGe
+=======
+//confuse string at Fri Mar  3 18:09:18 CST 2017
+#define loadPaymentControllerWithProdId HAkPeEkbOSUMCaLc
+#define AppDelegateDidBecomeActiveStatus pnrEolnsKQQpxZmS
+#define AppDelegateDidBecomeActiveNone zsHAzYnoYmtRQcCB
+#define AppDelegateDidBecomeActiveQueryGoodStatus ZjcdDEuQsDzzmxjX
+#define AppDelegateDidBecomeActiveWXCallBacked pUAkhOZfctzsVAen
+>>>>>>> .r1667
+#endif

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/code/!svn/ver/595/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/WeChatPay/Third
+END
+libWeChatSDK.a
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/code/!svn/ver/15/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/WeChatPay/Third/libWeChatSDK.a
+END
+WXApiObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/code/!svn/ver/595/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/WeChatPay/Third/WXApiObject.h
+END
+WechatAuthSDK.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/WeChatPay/Third/WechatAuthSDK.h
+END
+WXApi.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/code/!svn/ver/10/inbid/trunk/inbid-ios/inbid-ios/Class/Payment/WeChatPay/Third/WXApi.h
+END

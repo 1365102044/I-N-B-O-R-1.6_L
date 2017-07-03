@@ -1,0 +1,244 @@
+//
+//  YXMyAccountFeedbookViewController.m
+//  inbid-ios
+//
+//  Created by 胤讯测试 on 16/9/22.
+//  Copyright © 2016年 胤讯. All rights reserved.
+//
+
+#import "YXMyAccountFeedbookViewController.h"
+#import "YXPlaceholderTextView.h"
+#import "YXMyOrderSuccessAlerview.h"
+#import "MQChatViewManager.h"
+#import "YXChatViewManger.h"
+#import "YXAlearFormMyView.h"
+
+@interface YXMyAccountFeedbookViewController ()<UITextViewDelegate>
+
+@property(nonatomic,strong) YXMyOrderSuccessAlerview * RemindGoodsView;
+
+@property (weak, nonatomic) IBOutlet UILabel *textviewplodtextlable;
+
+@property (weak, nonatomic) IBOutlet YXPlaceholderTextView *feedbooktextview;
+
+@property (weak, nonatomic) IBOutlet UIView *phonelablebackview;
+@property (weak, nonatomic) IBOutlet UILabel *phonetextlable;
+
+@property (weak, nonatomic) IBOutlet UIButton *KefuBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *PhoneBtn;
+@property (weak, nonatomic) IBOutlet UILabel *daojishizishu;
+
+@property (weak, nonatomic) IBOutlet UIView *boomtopviewline;
+
+@property(nonatomic,strong) NSString *  alltextstr;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *commtiBtn;
+@property(nonatomic,strong) YXAlearFormMyView * alearMyview;
+@end
+
+@implementation YXMyAccountFeedbookViewController
+-(YXAlearFormMyView*)alearMyview
+{
+    if (!_alearMyview) {
+        
+        _alearMyview = [[YXAlearFormMyView alloc]init];
+        [self.view addSubview:self.alearMyview];
+        _alearMyview.alpha = 0;
+    }
+    return _alearMyview;
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [YXNetworkHUD dismiss];
+    
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"意见反馈";
+
+    NSString *phonestr =  [YXLoadZitiData objectZiTiWithforKey:@"customerPhone"];
+    [self.KefuBtn setTitle:@"客服" forState:UIControlStateNormal];
+    [self.PhoneBtn setTitle:phonestr forState:UIControlStateNormal];
+    
+    [self setUI];
+    
+    self.feedbooktextview.delegate = self;
+    
+    self.phonetextlable.text = [YXStringFilterTool replaceStringWithAsterisk:[YXUserDefaults objectForKey:@"PHONE"] startLocation:3 lenght:4];
+    
+    
+}
+-(void)setUI{
+    
+
+    self.feedbooktextview.placeholder = @"请输入您的意见（500字以内）";
+    self.feedbooktextview.placeholderColor = UIColorFromRGB(0xaaa7a7);
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    self.feedbooktextview.layer.borderColor = UIColorFromRGB(0xe5e5e5).CGColor;
+    self.feedbooktextview.layer.borderWidth = 1;
+    self.feedbooktextview.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
+    
+    self.phonelablebackview.layer.borderColor = UIColorFromRGB(0xe5e5e5).CGColor;
+    self.phonelablebackview.layer.borderWidth = 1;
+    
+    self.KefuBtn.layer.borderColor = UIColorFromRGB(0xe5e5e5).CGColor;
+    self.KefuBtn.layer.borderWidth = 1;
+    
+    self.PhoneBtn.layer.borderColor = UIColorFromRGB(0xe5e5e5).CGColor;
+    self.PhoneBtn.layer.borderWidth = 1;
+    
+    self.KefuBtn.size = CGSizeMake(130, 35);
+    self.PhoneBtn.size = self.KefuBtn.size;
+    self.KefuBtn.y = YXScreenH-10-35-3;
+    self.PhoneBtn.y = self.KefuBtn.y;
+    self.KefuBtn.x = (YXScreenW-130*2-20)/2;
+    self.PhoneBtn.x = self.KefuBtn.right+20;
+    self.KefuBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
+    self.PhoneBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 3, 0, 0);
+    self.PhoneBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 8, 0, 0);
+    [self.feedbooktextview setInputAccessoryView:self.customAccessoryView];
+    self.boomtopviewline.layer.borderWidth = 0.5;
+    self.boomtopviewline.layer.borderColor = UIColorFromRGB(0xe5e5e5).CGColor;
+    
+    
+    
+}
+
+-(void)textViewDidChange:(UITextView *)textView
+{
+    
+    if (textView.text.length >500) {
+        
+        self.feedbooktextview.text = self.alltextstr;
+        
+        return;
+    }
+    
+    self.daojishizishu.text = [NSString stringWithFormat:@"%lu/500",textView.text.length];
+    self.alltextstr = textView.text;
+    
+}
+
+- (IBAction)Clicktap:(id)sender {
+    
+    [self.feedbooktextview resignFirstResponder];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (IBAction)ClickCommitData:(id)sender {
+    //先将未到时间执行前的任务取消。
+    [[self class]cancelPreviousPerformRequestsWithTarget:self selector:@selector(commitData) object:nil];
+    [self performSelector:@selector(commitData)withObject:nil afterDelay:0.2f];
+}
+
+- (IBAction)ClickKefuBtn:(id)sender {
+    
+    [self pushKeFuVC];
+}
+
+/*
+ @brief 跳转客服控制器
+ */
+-(void)pushKeFuVC
+{
+    [[YXChatViewManger sharedChatviewManger] LoadChatView];
+    [[YXChatViewManger sharedChatviewManger] presentMQChatViewControllerInViewController:self];
+    
+    
+}
+
+- (IBAction)ClickPhoneBtn:(id)sender {
+    
+    [self CallPhone:self.PhoneBtn.titleLabel.text];
+    
+}
+-(void)CallPhone:(NSString *)phonestr {
+    
+    
+    NSString *phone = [YXLoadZitiData objectZiTiWithforKey:@"customerPhone"];
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",phone];
+    UIWebView * callWebview = [[UIWebView alloc] init];
+    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+    [self.view addSubview:callWebview];
+}
+
+/*
+ @brief 提交反馈内容
+ */
+-(void)commitData
+{
+    
+    if (_feedbooktextview.text.length==0) {
+        self.alearMyview.alearstr = @"内容不能为空";
+        return;
+    }
+    [YXNetworkHUD show];
+    
+    self.commtiBtn.enabled = NO;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"content"] = self.feedbooktextview.text;
+    [YXRequestTool requestDataWithType:POST url:@"/api/member/suggest" params:param success:^(id objc, id respodHeader) {
+        
+        
+        if ([respodHeader[@"Status"] isEqualToString:@"1"]) {
+            
+            [self sharealearview];
+            self.RemindGoodsView.feedbookstr = @"提交成功";
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.commtiBtn.enabled = YES;
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+            
+        }else{
+            
+            self.alearMyview.alearstr = objc;
+        }
+        
+        [YXNetworkHUD dismiss];
+        
+    } failure:^(NSError *error) {
+        
+        [YXNetworkHUD dismiss];
+        self.commtiBtn.enabled = YES;
+    }];
+    
+}
+
+-(void)sharealearview{
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self.RemindGoodsView];
+    self.RemindGoodsView.frame = self.view.bounds;
+    __weak typeof (self) wealself = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [wealself dimssview];
+    });
+
+}
+
+
+-(void)dimssview
+{
+    [self.RemindGoodsView removeFromSuperview];
+    self.RemindGoodsView = nil;
+    
+}
+
+
+-(YXMyOrderSuccessAlerview*)RemindGoodsView
+{
+    if(!_RemindGoodsView){
+        
+        _RemindGoodsView = [[YXMyOrderSuccessAlerview alloc]init];
+        
+    }
+    return _RemindGoodsView;
+}
+@end

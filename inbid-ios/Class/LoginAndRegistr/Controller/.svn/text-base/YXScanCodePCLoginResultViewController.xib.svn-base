@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YXScanCodePCLoginResultViewController">
+            <connections>
+                <outlet property="loginBtn" destination="K9j-gv-mfP" id="DlI-O9-Nvt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qi-hG-k21">
+                    <rect key="frame" x="5" y="20" width="50" height="50"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Khu-Nx-73o"/>
+                        <constraint firstAttribute="width" constant="50" id="phB-6D-X89"/>
+                    </constraints>
+                    <state key="normal" image="icon_PayFenBiClose"/>
+                    <connections>
+                        <action selector="ClickCloseBtn:" destination="-1" eventType="touchUpInside" id="g9Z-EL-7rc"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_scancodePClogin" translatesAutoresizingMaskIntoConstraints="NO" id="Kad-wk-L6O">
+                    <rect key="frame" x="120" y="125" width="135" height="115"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="135" id="eGc-AH-d0t"/>
+                        <constraint firstAttribute="height" constant="115" id="eXP-bb-7If"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网页版胤宝登录确认" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmY-Hz-5OS">
+                    <rect key="frame" x="20" y="260" width="335" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="cpg-QK-ovN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.019607843137254902" green="0.019607843137254902" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9j-gv-mfP">
+                    <rect key="frame" x="113" y="503" width="150" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="qYU-Pt-yKb"/>
+                        <constraint firstAttribute="width" constant="150" id="xFn-4g-SdX"/>
+                    </constraints>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" red="0.1450980392" green="0.062745098040000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ClickLogin:" destination="-1" eventType="touchUpInside" id="txS-0i-9Qi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxx-Of-iZW">
+                    <rect key="frame" x="113" y="580" width="150" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="D2Y-rX-gyI"/>
+                        <constraint firstAttribute="width" constant="150" id="rbF-X1-Amc"/>
+                    </constraints>
+                    <state key="normal" title="取消登录">
+                        <color key="titleColor" red="0.66666666666666663" green="0.65490196078431373" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ClickCancleLogin:" destination="-1" eventType="touchUpInside" id="KP8-n6-VS8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5qi-hG-k21" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="456-D7-9gP"/>
+                <constraint firstAttribute="bottom" secondItem="Fxx-Of-iZW" secondAttribute="bottom" constant="50" id="9ic-6j-gFM"/>
+                <constraint firstAttribute="trailing" secondItem="RmY-Hz-5OS" secondAttribute="trailing" constant="20" id="MCJ-Gh-Vox"/>
+                <constraint firstItem="Kad-wk-L6O" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ncv-ZR-9cM"/>
+                <constraint firstItem="5qi-hG-k21" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Rix-CU-pWo"/>
+                <constraint firstItem="Kad-wk-L6O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="125" id="WRk-Dz-838"/>
+                <constraint firstItem="Fxx-Of-iZW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="alC-G5-3Of"/>
+                <constraint firstItem="Fxx-Of-iZW" firstAttribute="top" secondItem="K9j-gv-mfP" secondAttribute="bottom" constant="40" id="bOg-HH-nDd"/>
+                <constraint firstItem="K9j-gv-mfP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d6q-7n-bQO"/>
+                <constraint firstItem="RmY-Hz-5OS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="deL-N6-GUP"/>
+                <constraint firstItem="RmY-Hz-5OS" firstAttribute="top" secondItem="Kad-wk-L6O" secondAttribute="bottom" constant="20" id="pzs-pV-Mtv"/>
+            </constraints>
+            <point key="canvasLocation" x="-17" y="-194"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_PayFenBiClose" width="12" height="12"/>
+        <image name="icon_scancodePClogin" width="137" height="114"/>
+    </resources>
+</document>

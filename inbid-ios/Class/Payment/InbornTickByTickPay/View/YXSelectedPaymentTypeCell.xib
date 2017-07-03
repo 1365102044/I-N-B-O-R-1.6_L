@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kYXInbornTickByTickSelectedPaymentTypeCellReusableIdentifyID" id="KGk-i7-Jjw" customClass="YXSelectedPaymentTypeCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择本次支付方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXg-b2-qt4">
+                        <rect key="frame" x="14" y="15" width="111" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_FenBiPayChooseType" translatesAutoresizingMaskIntoConstraints="NO" id="NPh-T9-1vd">
+                        <rect key="frame" x="298" y="14" width="7" height="14"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gQw-Kb-QlF">
+                        <rect key="frame" x="11" y="4.5" width="71" height="35.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35.5" id="GwC-Fs-XzR"/>
+                            <constraint firstAttribute="width" constant="71" id="X7r-Jj-vcX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CN0-zw-8IF">
+                        <rect key="frame" x="92" y="15" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKW-cV-W2p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="zUr-nQ-knq"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLR-3k-art">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="KvS-dR-YxK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MKW-cV-W2p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0in-CU-Ks1"/>
+                    <constraint firstAttribute="bottom" secondItem="MLR-3k-art" secondAttribute="bottom" id="Cve-Fu-JK1"/>
+                    <constraint firstAttribute="trailing" secondItem="NPh-T9-1vd" secondAttribute="trailing" constant="15" id="ECY-Bq-FHn"/>
+                    <constraint firstItem="MLR-3k-art" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HOB-9P-ZbK"/>
+                    <constraint firstItem="CN0-zw-8IF" firstAttribute="centerY" secondItem="gQw-Kb-QlF" secondAttribute="centerY" id="RNc-Kg-pR6"/>
+                    <constraint firstItem="dXg-b2-qt4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="ULv-yo-Ayd"/>
+                    <constraint firstAttribute="trailing" secondItem="MKW-cV-W2p" secondAttribute="trailing" id="XTn-U0-yig"/>
+                    <constraint firstItem="NPh-T9-1vd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cGg-N3-LTR"/>
+                    <constraint firstItem="gQw-Kb-QlF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="lBg-NV-5n8"/>
+                    <constraint firstItem="CN0-zw-8IF" firstAttribute="leading" secondItem="gQw-Kb-QlF" secondAttribute="trailing" constant="10" id="lJf-as-tqZ"/>
+                    <constraint firstItem="dXg-b2-qt4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oGd-F9-mVo"/>
+                    <constraint firstAttribute="trailing" secondItem="MLR-3k-art" secondAttribute="trailing" id="rgQ-1V-cWJ"/>
+                    <constraint firstItem="MKW-cV-W2p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uhd-Hr-bD5"/>
+                    <constraint firstItem="gQw-Kb-QlF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xnZ-f4-0X8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomMarginView" destination="MLR-3k-art" id="mBf-NG-sy9"/>
+                <outlet property="paymentLogoImageView" destination="gQw-Kb-QlF" id="tcw-zV-CM1"/>
+                <outlet property="paymentTypeTitleLabel" destination="CN0-zw-8IF" id="UfK-ub-KUo"/>
+                <outlet property="tipsLabel" destination="dXg-b2-qt4" id="ZtU-aI-ehI"/>
+                <outlet property="topMarginView" destination="MKW-cV-W2p" id="eHA-gw-H60"/>
+            </connections>
+            <point key="canvasLocation" x="-233" y="75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_FenBiPayChooseType" width="7" height="14"/>
+    </resources>
+</document>

@@ -1,0 +1,517 @@
+//
+//  AppDelegate.m
+//  inbid-ios
+//
+//  Created by 胤讯测试 on 16/8/26.
+//  Copyright © 2016年 胤讯. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "YXTabBarController.h"
+#import "YXNavigationController.h"
+#import "MQChatViewManager.h"
+#import "JPUSHService.h"
+#import <AdSupport/AdSupport.h>
+#import <UserNotifications/UserNotifications.h>
+#import "YXNewsSystemViewController.h"
+#import "YXMySureMoneyNopayMentDeatilViewController.h"
+#import "YXMySureMoneyThawingDeatilViewController.h"
+#import "YXRefundMySureMoneyViewController.h"
+#import "YXSendAuctionInformationController.h"
+#import "JPush.h"
+#import "YXNewsDingdanNotiListViewController.h"
+#import "YXHomeAuctionDeatilViewCotroller.h"
+#import "BaiduMobStat.h"
+#import "YXWeChatPayManager.h"
+#import "YXAlipayManager.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "YXPaymentHomePageController.h"
+#import "YXOrderDetailViewController.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "YXThridPartyLoginManger.h"
+#import "YXOneMouthPriceDeatilViewController.h"
+#import "YXShareSDKManager.h"
+#import "YXLoginViewController.h"
+#import "YXLocalSystemNotificationManager.h"
+#import "YXNewsEnsureMoneyNotiListViewController.h"
+#import "YXChatViewManger.h"
+
+@interface AppDelegate ()<notipushDelegate,JPUSHRegisterDelegate, UNUserNotificationCenterDelegate>
+
+@end
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+
+    #pragma mark  *******************分享SDK**********************
+    [[YXShareSDKManager sharedManager] registerApp];
+    
+    #pragma mark  ******************* 美洽客服**********************
+    [[YXChatViewManger sharedChatviewManger] registerCustomSever];
+    
+    #pragma mark  ******************* 激光推送**********************
+    //极光推送
+    [JPush registerRemotePushService:application withOptions:launchOptions delegate:self];
+    
+    
+    // 1 创建window
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    YXTabBarController *tabBarController = [[YXTabBarController alloc]init];
+    _tabBarController = tabBarController;
+    
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"YXReConsignmentViewController" bundle:nil];
+//    YXNavigationController *controller = [[YXNavigationController alloc] initWithRootViewController:[sb instantiateInitialViewController]];
+//    [self.window setRootViewController:controller];
+    
+    self.window.rootViewController = tabBarController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+//    YXLog(@"%@", NSStringFromCGRect([UIScreen mainScreen].bounds));
+    
+    //** 延迟启动画面 */
+    [NSThread sleepForTimeInterval:2.0];
+    [self.window makeKeyAndVisible];
+    
+    [[UITabBar appearance] setTintColor:[UIColor mainThemColor]];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor darkGrayColor], UITextAttributeTextColor,
+                                                       nil] forState:UIControlStateNormal];
+    UIColor *titleHighlightedColor = [UIColor mainThemColor];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       titleHighlightedColor, UITextAttributeTextColor,
+                                                       nil] forState:UIControlStateSelected];
+    [[UITextField appearance] setTintColor:[UIColor mainThemColor]];
+    
+
+    
+    [JPush shareManager].pushvcDelegate = self;
+    [self startBaiduMobileStat];
+
+    //** 支付信息注册 */
+    [[YXWeChatPayManager sharedManager] weChatPayRegisterApp];
+    
+    if([[YXLoginStatusTool sharedLoginStatus] GetCureentLoginStatus]){
+        [JPush setAlias:[YXUserDefaults objectForKey:@"userID"]];
+    }
+    
+    return YES;
+}
+
+// 启动百度移动统计
+- (void)startBaiduMobileStat{
+    /*若应用是基于iOS 9系统开发，需要在程序的info.plist文件中添加一项参数配置，确保日志正常发送，配置如下：
+     NSAppTransportSecurity(NSDictionary):
+     NSAllowsArbitraryLoads(Boolen):YES
+     详情参考本Demo的BaiduMobStatSample-Info.plist文件中的配置
+     */
+    BaiduMobStat* statTracker = [BaiduMobStat defaultStat];
+    // 此处(startWithAppId之前)可以设置初始化的可选参数，具体有哪些参数，可详见BaiduMobStat.h文件，例如：
+    statTracker.shortAppVersion  = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    statTracker.enableDebugOn = YES;
+    
+    [statTracker startWithAppId:@"8d67a39089"]; // 设置您在mtj网站上添加的app的appkey,此处AppId即为应用的appKey
+}
+
+
+/*
+ @brief 上传极光devicetoken
+ */
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPush registerDeviceToken:deviceToken];
+    
+}
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    YXLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+
+#pragma mark- JPUSHRegisterDelegate
+
+// 当程序在前台时, 收到推送弹出的通知
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler
+{
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    
+    if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]])
+    {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    
+    // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+    // completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
+}
+
+// 程序关闭后, 通过点击推送弹出的通知
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler
+{
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    
+    if ([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]])
+    {
+        [JPUSHService handleRemoteNotification:userInfo];
+        NSString *type = [userInfo objectForKey:@"type"];
+        NSString *refId = [userInfo objectForKey:@"refId"];
+        
+        /**
+         *  type为500时为客服消息推送，在此走客服消息处理分之，不予订单推送一起处理
+         */
+        if ([type isEqualToString:@"500"]) {
+            [[YXChatViewManger sharedChatviewManger] handleNotificationMessageWithUserInfo:userInfo];
+        }else{
+            [self handleUserinfo:type refId:refId];
+        }
+    }
+    
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+     [JPush handleRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+
+}
+
+#pragma mark  ******************* 回调代理**********************
+
+-(void)handleUserinfo:(NSString *)type refId:(NSString*)refId
+{
+    YXTabBarController *tabVC = (YXTabBarController *)self.window.rootViewController;
+    YXNavigationController *pushClassStance = (YXNavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+    NSString *VCType = type;
+    NSString *orderID = refId;
+    //    typestr0   101-109 订单通知   2** 保证金消息    3**  鉴定订单    4**系统通知  500.客服推送(在调用方法处拦截判断)
+    NSString *typestr0 = [VCType substringToIndex:1];
+    
+    /*
+     @brief 订单
+     */
+    if ([typestr0 isEqualToString:@"1"] && self.status != AppDelegateDidBecomeActiveQueryGoodStatus) {
+        
+        if ([type isEqualToString:@"105"]) {
+            
+            YXOrderDetailViewController *PushVC = [YXOrderDetailViewController orderDetailViewControllerWithOrderId:[orderID longLongValue] andExtend:[[YXNewsDingdanNotiListViewController alloc]init]];
+            
+            [pushClassStance pushViewController:PushVC animated:YES];
+            return;
+        }
+        YXOrderDetailViewController *PushVC = [YXOrderDetailViewController orderDetailViewControllerWithOrderId:[orderID longLongValue] andExtend:nil];
+        
+        [pushClassStance pushViewController:PushVC animated:YES];
+    }
+
+    
+    /*
+     @brief 保证金订单
+     */
+    if ([typestr0 isEqualToString:@"2"]) {
+        if ([VCType isEqualToString:@"201"])      //分笔支付一次
+        {
+            YXMySureMoneyNopayMentDeatilViewController* PushVC = [[YXMySureMoneyNopayMentDeatilViewController alloc]init];
+            PushVC.marginId = orderID;
+            [pushClassStance pushViewController:PushVC animated:YES];
+            
+        }else if ([VCType isEqualToString:@"202"]||[VCType isEqualToString:@"203"])      //分笔支付完成 ||全额支付完成
+        {
+            YXMySureMoneyThawingDeatilViewController *dongjiezhong = [[YXMySureMoneyThawingDeatilViewController alloc]init];
+            dongjiezhong.marginId = orderID;
+            //            dongjiezhong.marginStatus = 1; //抵扣 罚扣
+            [pushClassStance pushViewController:dongjiezhong animated:YES];
+        }else if ([VCType isEqualToString:@"204"]||[VCType isEqualToString:@"205"])      //未能拍到，退保证金提醒 17 ||保证金退款成功提醒 15
+        {
+            YXRefundMySureMoneyViewController *jiedong = [[YXRefundMySureMoneyViewController alloc]init];
+            jiedong.marginId = orderID;
+            [pushClassStance pushViewController:jiedong animated:YES];
+        }else{
+            
+            YXNewsEnsureMoneyNotiListViewController *sureMoneyNotiListVc = [[YXNewsEnsureMoneyNotiListViewController alloc]init];
+            [pushClassStance pushViewController:sureMoneyNotiListVc animated:YES];
+        }
+    }
+    
+    /*
+     @brief 鉴定订单
+     */
+    if ([typestr0 isEqualToString:@"3"]) {
+        if ([self canNoticeSendAuctionInformationWithVcType:VCType])      //未支付提醒||全额支付完成823551584750910
+        {
+            YXSendAuctionInformationController *jianding = [[YXSendAuctionInformationController alloc]init];
+            jianding.orderID = [orderID longLongValue];
+            jianding.formeVC = 1;
+            if([type isEqualToString:@"302"])
+            {
+                jianding.formeNoti = @"formeNoti";
+            }
+            [pushClassStance pushViewController:jianding animated:YES];
+        }else{
+            YXNewsDingdanNotiListViewController *dingdanvc = [[YXNewsDingdanNotiListViewController alloc]init];
+            [pushClassStance pushViewController:dingdanvc animated:YES];
+        }
+    }
+    
+    /*
+     @brief 系统通知
+     */
+    if ([typestr0 isEqualToString:@"4"]) {
+        
+        if ([VCType isEqualToString:@"402"])      //关注拍品即将开拍提醒 756751384722546
+        {
+            YXHomeAuctionDeatilViewCotroller *deatilevc =[[YXHomeAuctionDeatilViewCotroller alloc]init];
+            deatilevc.ProBidId = [orderID longLongValue];
+            [pushClassStance pushViewController:deatilevc animated:YES];
+            
+        }else{
+        
+            YXNewsSystemViewController *system = [[YXNewsSystemViewController alloc]init];
+            [pushClassStance pushViewController:system animated:YES];
+        }
+    }
+}
+
+/**
+ 是否通知掉起预鉴定详情
+
+ @return 返回判断结果
+ */
+- (BOOL)canNoticeSendAuctionInformationWithVcType:(NSString *)vcType
+{
+    if ([vcType isEqualToString:@"301"]
+        && self.status != AppDelegateDidBecomeActiveQueryGoodStatus) {
+        return YES;
+    }
+    
+    if ([vcType isEqualToString:@"302"]
+        && self.status != AppDelegateDidBecomeActiveQueryGoodStatus ) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+/*
+ @brief 代理方法
+ */
+-(void)havenotiPushVC:(NSString *)type refId:(NSString *)refId name:(NSString *)name
+{
+    [self handleUserinfo:type refId:refId];
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if ([YXWeChatPayManager sharedManager].navigationControllerArray.count >= 2
+        && self.status == AppDelegateDidBecomeActiveQueryGoodStatus) {
+        UINavigationController *controller = [YXWeChatPayManager sharedManager].navigationControllerArray.firstObject;
+        [controller dismissViewControllerAnimated:NO completion:nil];
+    }
+    [[YXWeChatPayManager sharedManager].navigationControllerArray removeObjectAtIndex:0];
+    
+     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [JPUSHService setBadge:0];
+    [SVProgressHUD dismiss];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [application setApplicationIconBadgeNumber:0];
+    [JPUSHService setBadge:0];
+    [MQManager openMeiqiaService];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    
+    if (self.status != AppDelegateDidBecomeActiveQueryGoodStatus) return;
+    //** 发送通知 */
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"paymentCallBackFromeWX" object:nil userInfo:nil];
+}
+
+
+#pragma mark  ******************* 处理消息**********************
+//-(void)HandleRemoveNotifoication:(NSDictionary*)userinfo
+//{
+//    YXLog(@"---ios==========--push=====---%@",userinfo);
+//    
+//    
+//    YXNewsSystemViewController *pushToMessageVC = [YXNewsSystemViewController new];
+//    YXTabBarController *tabVC = [YXTabBarController new];
+//    self.window.rootViewController = tabVC;
+//    YXNavigationController *pushClassStance = (YXNavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+//    [pushClassStance pushViewController:pushToMessageVC animated:NO];
+//
+//}
+//+(void)handleRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+//{
+//   YXLog(@"---ios====+++++++++++++++++======--push=====---%@",userInfo);
+//
+//}
+
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    
+    [self deleteFile];
+}
+
+- (void)deleteFile
+{
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    // 获取要删除的路径
+    NSString *filePath = [path stringByAppendingPathComponent:@"goodListArray.data"];
+    // 创建文件管理对象
+    NSFileManager *manager = [NSFileManager defaultManager];
+    // 删除
+    BOOL isDelete = [manager removeItemAtPath:filePath error:nil];
+    YXLog(@"%d", isDelete);
+}
+
+
+
+#pragma mark - 微信支付
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [[YXWeChatPayManager sharedManager] handleOpenURL:url];
+    
+}
+// 9.0之前的
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [self OpenWithURL:url];
+}
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    
+    return  [self OpenWithURL:url];
+}
+/**
+ 支付宝 微信 支付回调的openURL   
+ platformId=wechat 分享 聊天界面
+ oauth  微信登录
+ qzapp  qq 登录
+ */
+- (BOOL)OpenWithURL:(NSURL *)url
+{
+    if ([url.host isEqualToString:@"safepay"]) {
+        
+        [[YXAlipayManager sharedManager] handleOpenURL:url];
+        self.status = AppDelegateDidBecomeActiveWXCallBacked;
+        return YES;
+        
+    }else if ([url.host isEqualToString:@"pay"]) {
+        self.status = AppDelegateDidBecomeActiveWXCallBacked;
+        return [[YXWeChatPayManager sharedManager] handleOpenURL:url];
+        
+    }else if([url.host isEqualToString:@"oauth"] || [url.host isEqualToString:@"platformId=wechat"]){
+        self.status = AppDelegateDidBecomeActiveWXCallBacked;
+        return [[YXWeChatPayManager sharedManager] handleOpenURL:url];
+        
+    }else if ([url.host isEqualToString:@"qzapp"]){
+    
+        return [[YXThridPartyLoginManger shared] TencehandleOpenURL:url];
+        
+    }else{
+        
+        [self OpenGoodsDeatilVCWithURL:url];
+        return YES;
+    }
+}
+
+/**
+ HTML 调到商品详情页面
+ */
+-(void)OpenGoodsDeatilVCWithURL:(NSURL *)url
+{
+    @try {
+        UIViewController *controller = [self topViewController];
+        if ([controller isKindOfClass:[YXLoginViewController class]]) {
+            [controller dismissViewControllerAnimated:NO completion:nil];
+            YXTabBarController *tabbarController = (YXTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            tabbarController.selectedIndex = 0;
+        }
+        
+        NSString *urlstr = [NSString stringWithFormat:@"%@",url];
+        if ([urlstr rangeOfString:@"bjinborn"].location == NSNotFound) {
+            return;
+        }
+        
+        YXLog(@"++++打开APP的URL：%@+++",url);
+        NSArray *urlarr = [urlstr componentsSeparatedByString:@"?"];
+        if (urlarr.count<=1) {
+            return;
+        }
+        NSArray *parmArr = [urlarr[1] componentsSeparatedByString:@"="];
+        if (parmArr.count<=1) {
+            return;
+        }
+        NSString *prodBidId = parmArr[1];
+        YXTabBarController *tabVC = (YXTabBarController *)self.window.rootViewController;
+        YXNavigationController *pushClassStance = (YXNavigationController *)tabVC.viewControllers[tabVC.selectedIndex];
+        YXOneMouthPriceDeatilViewController *onepriceDeatilVC = [[YXOneMouthPriceDeatilViewController alloc]init];
+        onepriceDeatilVC.prodBidId = prodBidId;
+        [pushClassStance pushViewController:onepriceDeatilVC animated:YES];
+    } @catch (NSException *exception) {
+        YXLog(@"%@", exception);
+    } @finally {
+        
+    }
+    
+}
+
+#pragma mark - *******获取最顶层ViewController*******
+
+- (UIViewController *)topViewController {
+    UIViewController *resultVC;
+    resultVC = [self topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];
+    while (resultVC.presentedViewController) {
+        resultVC = [self topViewController:resultVC.presentedViewController];
+    }
+    return resultVC;
+}
+
+- (UIViewController *)topViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        return [self topViewController:[(UINavigationController *)vc topViewController]];
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return [self topViewController:[(UITabBarController *)vc selectedViewController]];
+    } else {
+        return vc;
+    }
+    return nil;
+}
+#pragma mark - *******获取最顶层ViewController*******
+
+#pragma mark - First.懒加载
+
+- (AppDelegateDidBecomeActiveStatus)status
+{
+    if (!_status) {
+        _status = AppDelegateDidBecomeActiveNone;
+    }
+    return _status;
+}
+
+@end

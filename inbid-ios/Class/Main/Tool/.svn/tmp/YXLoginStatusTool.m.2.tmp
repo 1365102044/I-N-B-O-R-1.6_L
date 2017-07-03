@@ -1,0 +1,88 @@
+//
+//  YXLoginStatusTool.m
+//  inbid-ios
+//
+//  Created by 胤讯测试 on 16/12/24.
+//  Copyright © 2016年 胤讯. All rights reserved.
+//
+
+#import "YXLoginStatusTool.h"
+#import "SFHFKeychainUtils.h"
+
+#define inborn_token_user_name_key                 @"inborn_token_user_name_key"
+#define inborn_token_user_name_key_sever           @"inborn_token_user_name_key_sever"
+
+@implementation YXLoginStatusTool
+
++(instancetype)sharedLoginStatus
+{
+    static dispatch_once_t onceToken;
+    static YXLoginStatusTool *instance;
+    dispatch_once(&onceToken, ^{
+        instance = [[YXLoginStatusTool alloc]init];
+    });
+    return instance;
+}
+/**
+ YES  有token NO  没有Token
+ */
+-(BOOL)GetCureentLoginStatus
+{
+    //NSString *UsetToken = [YXUserDefaults objectForKey:@"TokenID"];
+    NSString *UsetToken = [self getTokenId];
+    if (UsetToken.length) {
+        return YES;
+    }
+    return NO;
+}
+
+/**
+ *  保存tokenId
+ *
+ *  @param tokenId tokenId
+ *  @return 是否保存成功
+ */
+- (BOOL)setTokenId:(NSString *)tokenId
+{
+    return [SFHFKeychainUtils storeUsername:inborn_token_user_name_key
+                                andPassword:tokenId
+                             forServiceName:inborn_token_user_name_key_sever
+                             updateExisting:NO
+                                      error:nil];
+}
+
+/**
+ *  获取tokenId
+ *
+ *  @return tokenId
+ */
+- (NSString *)getTokenId
+{
+    return [SFHFKeychainUtils getPasswordForUsername:inborn_token_user_name_key
+                                      andServiceName:inborn_token_user_name_key_sever
+                                               error:nil];
+//    return @"1d9c5b2291d0478a4e3c584cb2b8d153GUvM)hF($cOa*.ZEml0/qv00,1!ux0UM77r123051584732251";
+
+<<<<<<< .mine
+    return [SFHFKeychainUtils getPasswordForUsername:inborn_token_user_name_key
+                                      andServiceName:inborn_token_user_name_key_sever
+                                               error:nil];
+
+//    return @"1d9c5b2291d0478a4e3c584cb2b8d153GUvM)hF($cOa*.ZEml0/qv00,1!ux0UM77r123051584732251";
+
+=======
+>>>>>>> .r1486
+}
+
+/**
+ *  删除tokenId
+ */
+- (BOOL)removeTokenId
+{
+    return [SFHFKeychainUtils deleteItemForUsername:inborn_token_user_name_key
+                                     andServiceName:inborn_token_user_name_key_sever
+                                              error:nil];
+}
+
+
+@end

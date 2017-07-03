@@ -1,0 +1,190 @@
+//
+//  YXPrefixHeader.pch
+//  inbid-ios
+//
+//  Created by 胤讯测试 on 16/8/30.
+//  Copyright © 2016年 胤讯. All rights reserved.
+//
+
+#ifndef YXPrefixHeader_pch
+#define YXPrefixHeader_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//添加混淆作用的头文件（这个文件名是脚本confuse.sh中定义的）
+#import "codeObfuscation.h"
+#endif
+
+#endif /* YXPrefixHeader_pch */
+
+
+#pragma mark - 主头文件
+
+//#import "YXPch.h"
+
+#import "UIView+Extension.h"
+#import "Masonry.h"
+#import "YXConst.h"
+#import "YXNetworkTool.h"
+
+//#import "YXAlerErrorViewTool.h"
+#import "YXMyOrderSuccessAlerview.h"
+#import <MJExtension.h>
+#import <UIImageView+WebCache.h>
+#import "YXStringFilterTool.h"
+#import <SafeKit.h>
+#import <MJRefresh.h>
+#import "YXHomePageNetRequestTool.h"
+
+#import "SVProgressHUD.h"
+#import "YXKeyboardToolbar.h"
+#import "YXMainKeyBoaryViewController.h"
+#import "YXNetworkHUD.h"
+
+#import "YXHomePageURLMacros.h"
+#import "UIColor+YXColor_Extension.h"
+#import "YXPayMentNetRequestTool.h"
+#import "YXRequestZitiInformationManager.h"
+#import "YXAlearViewTool.h"
+#import "YXLoginStatusTool.h"
+
+#pragma mark - 项目用宏定义
+
+
+/**
+ *  适配机型
+ *
+ */
+#define iPHone6Plus ([UIScreen mainScreen].bounds.size.height == 736) ? YES : NO
+
+#define iPHone6 ([UIScreen mainScreen].bounds.size.height == 667) ? YES : NO
+
+#define iPHone5 ([UIScreen mainScreen].bounds.size.height == 568) ? YES : NO
+
+#define iPHone4oriPHone4s ([UIScreen mainScreen].bounds.size.height == 480) ? YES : NO
+
+
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+
+
+//** 16进制颜色 */
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+//** RGB颜色 */
+#define YXColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//** 屏幕宽度 */
+#define YXScreenW [UIScreen mainScreen].bounds.size.width
+//** 屏幕高度 */
+#define YXScreenH [UIScreen mainScreen].bounds.size.height
+//** 字体大小 */
+#define YXSFont(x) [UIFont systemFontOfSize:x]
+//** 首页首标签id */
+#define HOMEPAGEALLLABEL -1234567890
+
+/*
+ PingFang SC
+ PingFangSC-Ultralight
+ PingFangSC-Regular
+ PingFangSC-Semibold
+ PingFangSC-Thin
+ PingFangSC-Light
+ PingFangSC-Medium
+ */
+
+
+/*
+ @brief 平方常规字体
+ */
+#define  YXRegularfont(x) [UIFont fontWithName:@".PingFang-SC-Light"size:x]
+// ios9 之后用系统带的苹方加粗，（导入的平方加粗的字体 移除）
+#define YXRegularSoldfont(x)  (([[[UIDevice currentDevice]systemVersion ] floatValue] >=9 )?[UIFont fontWithName:@"PingFangSC-Semibold" size:x]:[UIFont systemFontOfSize:x])
+
+
+/*
+ @brief 详细黑色
+ */
+#define  YXHomeDeatilcolor  UIColorFromRGB(0x262626)
+//控制器的背景色
+#define YXBackMainColor UIColorFromRGB(0xf9f9f9)
+//**控件描边颜色**/
+#define LineBorderColor  UIColorFromRGB(0xe5e5e5)
+
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+
+//#define kOuternet  @"http://192.168.1.123:8080"
+//#define kOuternet  @"http://101.200.162.3:8850"
+//#define kOuternet  @"http://101.200.162.3:8810"
+#define kOuternet  @"https://test.inborn.com"
+//#define kOuternet  @"http://192.168.1.57:8810"
+//#define kOuternet  @"http://192.168.1.110" //吴帅
+//#define kOuternet  @"http://192.168.1.108"
+//#define kOuternet  @"https://www.inborn.com"
+//#define kOuternet  @"http://192.168.1.120:8610"
+//#define kOuternet  @"http://192.168.1.139"
+
+//**帮助中心的**/
+#define  kHELP_URL @"http://m.inborn.com"
+/** JSPatch访问路径 */
+#define  STYTEM_THIRD_JSPATCH [NSString stringWithFormat:@"%@/api/hotrepair/download", kOuternet]
+
+
+#define YXUserDefaults      [NSUserDefaults standardUserDefaults]
+#define YXRequestTool       [YXNetworkTool sharedTool]
+#define YXNotificationTool      [NSNotificationCenter defaultCenter]
+#define  YXLoadZitiData    [YXRequestZitiInformationManager sharedZiti]
+#define YXAlearMnager         [YXAlearViewTool sharedAlearview]  //弹出框
+
+//** =========================================================================================== */
+//** ============================================宏定义========================================== */
+//** =========================================================================================== */
+
+/**
+ * 主窗口
+ */
+#define SYSTEM_KEYWINDOW                      [UIApplication sharedApplication].keyWindow
+
+/**
+ * 屏幕宽
+ */
+#define SCREEN_WIDTH YXScreenW
+
+/**
+ * 屏幕高
+ */
+#define SCREEN_HEIGHT YXScreenH
+
+/**
+ *  屏幕适配比例，以iPhone6为基准
+ */
+#define ADJUST_PERCENT_FLOAT(float) (float * SCREEN_WIDTH / 375.f)
+
+/**
+ *  获取字并根据大小适配_系统字体
+ */
+#define SYSTEM_FONT(float) [UIFont systemFontOfSize: ADJUST_PERCENT_FLOAT(float)]
+
+/**
+ *  获取字并根据大小适配_自定义字体
+ */
+#define REGULAR_FONT(float) [UIFont fontWithName:@".PingFang-SC-Light"size: ADJUST_PERCENT_FLOAT(float)]
+
+/**
+ * 屏幕缩放因子
+ */
+#define SCREEN_SCALE ([UIScreen mainScreen].scale)
+
+/**
+ * 获取本地文件(测试使用)
+ */
+#define LOADLOCALDATA_DATA(path)                          [NSData dataWithContentsOfFile:path]
+
+//** 项目NSLog */
+#ifdef DEBUG
+#define YXLog(...) NSLog(__VA_ARGS__)
+#else
+#define YXLog(...)
+
+
+#endif /* YXPrefixHeader_pch */

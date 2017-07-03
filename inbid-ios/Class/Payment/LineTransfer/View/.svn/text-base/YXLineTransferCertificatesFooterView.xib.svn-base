@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="knA-pv-dBt" customClass="YXLineTransferCertificatesFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHv-OM-Lb8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" red="1" green="0.82591426609999996" blue="0.63090839180000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="mKp-DP-paO"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2b6-CS-ojf">
+                    <rect key="frame" x="11" y="10" width="353" height="44"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.039215686270000001" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="qOF-f2-QGA"/>
+                    </constraints>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="funcButtonClick:" destination="knA-pv-dBt" eventType="touchUpInside" id="OAu-WW-QVG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVf-Ou-ZAv">
+                    <rect key="frame" x="11" y="77" width="261" height="30"/>
+                    <state key="normal" title="跳过这一步，稍后再提供转账汇款凭证"/>
+                    <connections>
+                        <action selector="funcButtonClick:" destination="knA-pv-dBt" eventType="touchUpInside" id="mog-8T-3hg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2b6-CS-ojf" secondAttribute="trailing" constant="11" id="0Lf-pq-4mc"/>
+                <constraint firstItem="nVf-Ou-ZAv" firstAttribute="leading" secondItem="2b6-CS-ojf" secondAttribute="leading" id="8Ee-aj-Twg"/>
+                <constraint firstItem="tHv-OM-Lb8" firstAttribute="top" secondItem="knA-pv-dBt" secondAttribute="top" id="E7B-WP-dgl"/>
+                <constraint firstItem="2b6-CS-ojf" firstAttribute="leading" secondItem="knA-pv-dBt" secondAttribute="leading" constant="11" id="WAQ-lU-6pg"/>
+                <constraint firstItem="2b6-CS-ojf" firstAttribute="top" secondItem="tHv-OM-Lb8" secondAttribute="bottom" constant="9" id="f1D-fL-HMx"/>
+                <constraint firstItem="tHv-OM-Lb8" firstAttribute="leading" secondItem="knA-pv-dBt" secondAttribute="leading" id="pPC-zc-H1S"/>
+                <constraint firstAttribute="trailing" secondItem="tHv-OM-Lb8" secondAttribute="trailing" id="st6-l9-yFg"/>
+                <constraint firstItem="nVf-Ou-ZAv" firstAttribute="top" secondItem="2b6-CS-ojf" secondAttribute="bottom" constant="23.5" id="x3U-Ju-3qB"/>
+            </constraints>
+            <connections>
+                <outlet property="nextButton" destination="nVf-Ou-ZAv" id="bo3-cD-M8X"/>
+                <outlet property="sureButton" destination="2b6-CS-ojf" id="DcX-Xh-B2f"/>
+                <outlet property="topSpacingView" destination="tHv-OM-Lb8" id="UxX-It-jel"/>
+            </connections>
+            <point key="canvasLocation" x="-53" y="16"/>
+        </view>
+    </objects>
+</document>

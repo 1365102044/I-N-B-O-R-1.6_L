@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="kLG-Cr-WlC" customClass="YXShareView" customModule="ShareViewController" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZz-UX-2Y2">
+                    <rect key="frame" x="0.0" y="242" width="375" height="48"/>
+                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="Vyg-3S-B6g"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancle" destination="kLG-Cr-WlC" eventType="touchUpInside" id="MbG-4T-cLr"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DuY-nS-I4m">
+                    <rect key="frame" x="18" y="126" width="339" height="1"/>
+                    <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Lba-vT-rbk"/>
+                    </constraints>
+                </view>
+                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l62-YY-EWL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
+                </scrollView>
+                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwX-ig-ISs">
+                    <rect key="frame" x="0.0" y="127" width="375" height="115"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pwX-ig-ISs" firstAttribute="top" secondItem="DuY-nS-I4m" secondAttribute="bottom" id="2XC-Kc-f4G"/>
+                <constraint firstItem="TZz-UX-2Y2" firstAttribute="top" secondItem="pwX-ig-ISs" secondAttribute="bottom" id="4jR-bd-rVE"/>
+                <constraint firstAttribute="trailing" secondItem="DuY-nS-I4m" secondAttribute="trailing" constant="18" id="Djh-Dx-URP"/>
+                <constraint firstAttribute="trailing" secondItem="pwX-ig-ISs" secondAttribute="trailing" id="LZn-UK-6ES"/>
+                <constraint firstAttribute="bottom" secondItem="TZz-UX-2Y2" secondAttribute="bottom" id="NOH-kY-EnN"/>
+                <constraint firstItem="DuY-nS-I4m" firstAttribute="leading" secondItem="kLG-Cr-WlC" secondAttribute="leading" constant="18" id="RLO-4H-qUT"/>
+                <constraint firstAttribute="trailing" secondItem="TZz-UX-2Y2" secondAttribute="trailing" id="RgW-ev-xiz"/>
+                <constraint firstItem="DuY-nS-I4m" firstAttribute="top" secondItem="kLG-Cr-WlC" secondAttribute="top" constant="126" id="Xok-Lv-1CJ"/>
+                <constraint firstItem="DuY-nS-I4m" firstAttribute="top" secondItem="l62-YY-EWL" secondAttribute="bottom" id="bkC-Ao-TOu"/>
+                <constraint firstItem="TZz-UX-2Y2" firstAttribute="leading" secondItem="kLG-Cr-WlC" secondAttribute="leading" id="f3R-Ao-cgz"/>
+                <constraint firstAttribute="trailing" secondItem="l62-YY-EWL" secondAttribute="trailing" id="kJB-mp-Odg"/>
+                <constraint firstItem="l62-YY-EWL" firstAttribute="leading" secondItem="kLG-Cr-WlC" secondAttribute="leading" id="nap-nU-eKy"/>
+                <constraint firstItem="pwX-ig-ISs" firstAttribute="leading" secondItem="kLG-Cr-WlC" secondAttribute="leading" id="pKi-Xv-njD"/>
+                <constraint firstItem="l62-YY-EWL" firstAttribute="top" secondItem="kLG-Cr-WlC" secondAttribute="top" id="xaF-az-7Mr"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomScrollView" destination="pwX-ig-ISs" id="o2l-vp-tHX"/>
+                <outlet property="topScrollView" destination="l62-YY-EWL" id="Sza-ov-jaK"/>
+            </connections>
+            <point key="canvasLocation" x="-160" y="59"/>
+        </view>
+    </objects>
+</document>

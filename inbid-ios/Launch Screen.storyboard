@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5K-iv-iXz">
+                                <rect key="frame" x="120" y="552" width="136" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="胤 宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tok-WM-e3w">
+                                        <rect key="frame" x="70" y="0.0" width="46" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="版本信息-胤宝logo-" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-Ek-DUg">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45.5" id="wFW-4x-FkY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INBORN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80h-qq-ggL">
+                                        <rect key="frame" x="65" y="29" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="80h-qq-ggL" firstAttribute="top" secondItem="tok-WM-e3w" secondAttribute="bottom" constant="5" id="35T-VC-xGS"/>
+                                    <constraint firstAttribute="bottom" secondItem="T4M-Ek-DUg" secondAttribute="bottom" id="QRw-Ai-AJM"/>
+                                    <constraint firstItem="80h-qq-ggL" firstAttribute="leading" secondItem="T4M-Ek-DUg" secondAttribute="trailing" constant="20" id="VON-Cw-Rdz"/>
+                                    <constraint firstItem="T4M-Ek-DUg" firstAttribute="leading" secondItem="G5K-iv-iXz" secondAttribute="leading" id="XnW-mE-8ny"/>
+                                    <constraint firstItem="tok-WM-e3w" firstAttribute="top" secondItem="T4M-Ek-DUg" secondAttribute="top" id="YL7-TX-biz"/>
+                                    <constraint firstAttribute="height" constant="45" id="dii-0L-YUu"/>
+                                    <constraint firstAttribute="width" constant="136.5" id="iTe-Xs-vQi"/>
+                                    <constraint firstItem="T4M-Ek-DUg" firstAttribute="top" secondItem="G5K-iv-iXz" secondAttribute="top" id="tMs-Af-bOs"/>
+                                    <constraint firstItem="tok-WM-e3w" firstAttribute="leading" secondItem="T4M-Ek-DUg" secondAttribute="trailing" constant="25" id="xH1-vc-ke4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G5K-iv-iXz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="See-yu-zJj"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="G5K-iv-iXz" secondAttribute="bottom" constant="70" id="hZX-bG-FPP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+<<<<<<< .mine
+            <point key="canvasLocation" x="30" y="325"/>
+=======
+            <point key="canvasLocation" x="-282.39999999999998" y="469.1154422788606"/>
+>>>>>>> .r1672
+        </scene>
+    </scenes>
+    <resources>
+        <image name="版本信息-胤宝logo-" width="27" height="27"/>
+    </resources>
+</document>

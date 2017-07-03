@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kYXMyLabelControllerThirdSectionReusableViewReId" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjT-IM-fPK">
+                    <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="iF9-fN-FxY"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBV-cD-prg">
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VjT-IM-fPK" secondAttribute="trailing" id="4pq-Ub-quz"/>
+                <constraint firstItem="VjT-IM-fPK" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Csu-SL-iWT"/>
+                <constraint firstItem="RBV-cD-prg" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="14" id="ERv-6L-kyM"/>
+                <constraint firstItem="VjT-IM-fPK" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="kgK-IB-8r0"/>
+                <constraint firstItem="RBV-cD-prg" firstAttribute="top" secondItem="VjT-IM-fPK" secondAttribute="bottom" constant="7.5" id="zZm-b6-CzI"/>
+            </constraints>
+            <point key="canvasLocation" x="25" y="43.5"/>
+        </collectionReusableView>
+    </objects>
+</document>

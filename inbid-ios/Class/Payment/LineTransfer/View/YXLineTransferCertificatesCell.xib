@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kYXPaymentLineTransferControllerCertificatesReusableIdentifier" rowHeight="285" id="KGk-i7-Jjw" customClass="YXLineTransferCertificatesCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="285"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请您在成功转账后拍照上传转账凭证或汇款底单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gca-st-8O5">
+                        <rect key="frame" x="12" y="15" width="298" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Hz-bg-iFF">
+                        <rect key="frame" x="12" y="46" width="296" height="131"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="131" id="ICZ-37-kKL"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsZ-jk-um6">
+                        <rect key="frame" x="295" y="34" width="25" height="25"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="7eW-Jf-zm3"/>
+                            <constraint firstAttribute="width" constant="25" id="HKe-dn-U3I"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="删除" image="icon_cancelCerImage">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="cancelButtonClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3n1-K8-4bh"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxD-Qn-ioM">
+                        <rect key="frame" x="12" y="46" width="295.5" height="131"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2m-I3-gnt" customClass="M13ProgressViewPie">
+                                <rect key="frame" x="122" y="40.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iXK-Db-vM2"/>
+                                    <constraint firstAttribute="width" constant="50" id="p99-um-ehc"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSm-dy-6uB">
+                                <rect key="frame" x="133" y="58" width="31" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jSm-dy-6uB" firstAttribute="centerY" secondItem="gxD-Qn-ioM" secondAttribute="centerY" id="GBT-Iq-lZG"/>
+                            <constraint firstItem="y2m-I3-gnt" firstAttribute="centerX" secondItem="gxD-Qn-ioM" secondAttribute="centerX" id="KaQ-UQ-aXb"/>
+                            <constraint firstItem="y2m-I3-gnt" firstAttribute="centerY" secondItem="gxD-Qn-ioM" secondAttribute="centerY" id="ML2-7I-MrT"/>
+                            <constraint firstAttribute="height" constant="131" id="T82-2h-5yV"/>
+                            <constraint firstItem="jSm-dy-6uB" firstAttribute="centerX" secondItem="gxD-Qn-ioM" secondAttribute="centerX" id="ypQ-3q-g77"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gxD-Qn-ioM" secondAttribute="trailing" constant="12.5" id="1ak-zC-zbO"/>
+                    <constraint firstItem="gxD-Qn-ioM" firstAttribute="leading" secondItem="gca-st-8O5" secondAttribute="leading" id="ZG9-5T-7Z1"/>
+                    <constraint firstAttribute="trailing" secondItem="gca-st-8O5" secondAttribute="trailing" constant="10" id="Ze8-CV-hhb"/>
+                    <constraint firstAttribute="trailing" secondItem="3Hz-bg-iFF" secondAttribute="trailing" constant="12.5" id="a9r-b3-pPd"/>
+                    <constraint firstItem="gca-st-8O5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="ed2-HB-vY7"/>
+                    <constraint firstItem="IsZ-jk-um6" firstAttribute="trailing" secondItem="3Hz-bg-iFF" secondAttribute="trailing" constant="12.5" id="lAX-TV-Ruo"/>
+                    <constraint firstItem="3Hz-bg-iFF" firstAttribute="top" secondItem="gca-st-8O5" secondAttribute="bottom" constant="15" id="lM0-dH-mKf"/>
+                    <constraint firstItem="3Hz-bg-iFF" firstAttribute="leading" secondItem="gca-st-8O5" secondAttribute="leading" id="rMe-34-Yjs"/>
+                    <constraint firstItem="gxD-Qn-ioM" firstAttribute="top" secondItem="gca-st-8O5" secondAttribute="bottom" constant="15" id="rXa-V6-KFJ"/>
+                    <constraint firstItem="IsZ-jk-um6" firstAttribute="top" secondItem="3Hz-bg-iFF" secondAttribute="top" constant="-12.5" id="tYE-nx-5HD"/>
+                    <constraint firstItem="gca-st-8O5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="vW3-cY-TGq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cancelButton" destination="IsZ-jk-um6" id="0ke-cz-Ps4"/>
+                <outlet property="certificatesImageView" destination="3Hz-bg-iFF" id="LV1-LI-fcu"/>
+                <outlet property="failLabel" destination="jSm-dy-6uB" id="4qJ-GR-fI5"/>
+                <outlet property="imageMaskView" destination="gxD-Qn-ioM" id="Mt5-AV-ozL"/>
+                <outlet property="progressView" destination="y2m-I3-gnt" id="8WO-gT-Vsu"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="172.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_cancelCerImage" width="23" height="23"/>
+    </resources>
+</document>

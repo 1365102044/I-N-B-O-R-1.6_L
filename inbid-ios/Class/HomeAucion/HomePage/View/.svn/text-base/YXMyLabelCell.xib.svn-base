@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kYXMyLabelControllerCellReusableViewReId" id="gTV-IL-0wX" customClass="YXMyLabelCell">
+            <rect key="frame" x="0.0" y="0.0" width="249" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="249" height="71"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e3-hd-MPo">
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="8e3-hd-MPo" secondAttribute="bottom" id="FS9-jC-Kwp"/>
+                <constraint firstAttribute="trailing" secondItem="8e3-hd-MPo" secondAttribute="trailing" id="HnY-Xd-fPv"/>
+                <constraint firstItem="8e3-hd-MPo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MpQ-O4-Ccr"/>
+                <constraint firstItem="8e3-hd-MPo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dRY-tS-frq"/>
+            </constraints>
+            <size key="customSize" width="249" height="71"/>
+            <connections>
+                <outlet property="labelButton" destination="8e3-hd-MPo" id="gJ6-VX-I6n"/>
+            </connections>
+            <point key="canvasLocation" x="-74" y="76"/>
+        </collectionViewCell>
+    </objects>
+</document>

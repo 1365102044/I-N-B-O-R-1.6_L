@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kYXPaymentHomePageControllerPaymentTypeCellReusableIdentifier" rowHeight="90" id="KGk-i7-Jjw" customClass="YXPaymentTypeCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rv-Hl-qlg">
+                        <rect key="frame" x="74.5" y="14" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yll-nH-r9H">
+                        <rect key="frame" x="74.5" y="39" width="31" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.65490196078431373" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nA1-qi-MZN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="QxF-QG-pvp"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFd-L3-3fg">
+                        <rect key="frame" x="0.0" y="89" width="320" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="USW-V3-fhj"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Me-NB-yhK">
+                        <rect key="frame" x="14.5" y="25.5" width="45" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="R6S-Sn-aWf"/>
+                            <constraint firstAttribute="width" constant="45" id="zlF-IY-1WU"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ApplePay_detailImage" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-ww-RUi">
+                        <rect key="frame" x="147" y="11" width="83" height="23"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_PayTypeSelect_no" translatesAutoresizingMaskIntoConstraints="NO" id="Trg-gq-Eju">
+                        <rect key="frame" x="283.5" y="34" width="22" height="22"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="Icx-ww-RUi" firstAttribute="leading" secondItem="2rv-Hl-qlg" secondAttribute="trailing" constant="37" id="7Du-zW-jPz"/>
+                    <constraint firstItem="8Me-NB-yhK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14.5" id="8a0-6a-fmI"/>
+                    <constraint firstItem="2rv-Hl-qlg" firstAttribute="leading" secondItem="8Me-NB-yhK" secondAttribute="trailing" constant="15" id="EmZ-rj-v1w"/>
+                    <constraint firstAttribute="trailing" secondItem="fFd-L3-3fg" secondAttribute="trailing" id="HbC-LD-3Vo"/>
+                    <constraint firstItem="fFd-L3-3fg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QVn-ij-beg"/>
+                    <constraint firstItem="Yll-nH-r9H" firstAttribute="leading" secondItem="2rv-Hl-qlg" secondAttribute="leading" id="RZr-qR-zLa"/>
+                    <constraint firstItem="2rv-Hl-qlg" firstAttribute="top" secondItem="nA1-qi-MZN" secondAttribute="bottom" constant="13" id="WZA-gJ-IfZ"/>
+                    <constraint firstItem="nA1-qi-MZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YKI-5O-CJO"/>
+                    <constraint firstAttribute="trailing" secondItem="nA1-qi-MZN" secondAttribute="trailing" id="cZp-lR-Xxt"/>
+                    <constraint firstAttribute="trailing" secondItem="Trg-gq-Eju" secondAttribute="trailing" constant="14.5" id="kFF-SN-VVW"/>
+                    <constraint firstAttribute="bottom" secondItem="fFd-L3-3fg" secondAttribute="bottom" id="lMN-Qr-tI2"/>
+                    <constraint firstItem="Icx-ww-RUi" firstAttribute="centerY" secondItem="2rv-Hl-qlg" secondAttribute="centerY" id="qAs-pq-nvm"/>
+                    <constraint firstItem="Trg-gq-Eju" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qba-1l-e1u"/>
+                    <constraint firstItem="8Me-NB-yhK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uzs-VI-3LM"/>
+                    <constraint firstItem="nA1-qi-MZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vjM-dg-3GV"/>
+                    <constraint firstItem="Yll-nH-r9H" firstAttribute="top" secondItem="2rv-Hl-qlg" secondAttribute="bottom" constant="8" id="wOv-Ya-zZ4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="applePayDetailImageView" destination="Icx-ww-RUi" id="KFc-U7-piI"/>
+                <outlet property="bottomMarginView" destination="fFd-L3-3fg" id="R2e-A3-7E6"/>
+                <outlet property="paymentLogoImageView" destination="8Me-NB-yhK" id="OpZ-Ix-fT8"/>
+                <outlet property="paymentTypeDetailLabel" destination="Yll-nH-r9H" id="FJz-9v-YZn"/>
+                <outlet property="paymentTypeTitleLabel" destination="2rv-Hl-qlg" id="i2H-ok-tNQ"/>
+                <outlet property="selectedImage" destination="Trg-gq-Eju" id="F2O-Da-EdB"/>
+                <outlet property="topMarginView" destination="nA1-qi-MZN" id="zs6-OM-JJD"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_ApplePay_detailImage" width="83" height="23"/>
+        <image name="icon_PayTypeSelect_no" width="22" height="22"/>
+    </resources>
+</document>

@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "bce75e18-199b-493e-8668-08c1ab2a8f43++960",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "bce75e18-199b-493e-8668-08c1ab2a8f43++960" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "bce75e18-199b-493e-8668-08c1ab2a8f43++960" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "87A27BEE-B734-4CFC-AC8F-17C32DE44611",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "bce75e18-199b-493e-8668-08c1ab2a8f43++960" : "inbid-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "inbid-ios",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "inbid-ios.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/123.57.225.131\/project\/inbid-ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "bce75e18-199b-493e-8668-08c1ab2a8f43++960"
+    }
+  ]
+}
